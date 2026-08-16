@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shorts Uploader</title>
+<style>
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    color: #222;
+  }
+  h1 { margin-bottom: 4px; }
+  .subtitle { color: #666; margin-top: 0; }
+  h2 { margin-top: 40px; }
+  ul { padding-left: 20px; }
+  footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    color: #666;
+    font-size: 0.9em;
+  }
+  footer a { color: #444; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<h1>Shorts Uploader</h1>
+<p class="subtitle">Persönliches Desktop-Tool zum automatisierten Zuschneiden und Veröffentlichen eigener Gameplay-Clips als vertikale Shorts.</p>
+
+<h2>Was macht das Tool?</h2>
+<p>
+Shorts Uploader ist ein lokal auf dem eigenen Rechner laufendes Python-Programm.
+Es wandelt selbst aufgenommene 16:9-Gameplay-Clips (z.&nbsp;B. Twitch-VODs) automatisch
+in vertikale 9:16-Shorts um und veröffentlicht sie anschließend auf dem eigenen
+TikTok-, YouTube- und Instagram-Konto. Es gibt kein öffentliches Angebot, keine
+Registrierung und keine Nutzer außer dem Entwickler selbst.
+</p>
+
+<h2>Funktionen</h2>
+<ul>
+  <li>Automatischer Zuschnitt von 16:9-Gameplay-Aufnahmen auf das 9:16 Shorts-Format (Facecam-Overlay oder unscharfer Hintergrund)</li>
+  <li>Automatisch erzeugte Titel-Karten und wählbare Titelposition</li>
+  <li>Automatische Untertitel per lokaler Spracherkennung (kein Cloud-Dienst)</li>
+  <li>Web-Oberfläche zur Sichtung und Freigabe jedes Clips vor der Veröffentlichung</li>
+  <li>Veröffentlichung auf dem eigenen TikTok-Konto über die TikTok Content Posting API (Login Kit zur Authentifizierung des Kontoinhabers)</li>
+</ul>
+
+<h2>Wie die TikTok-Integration funktioniert</h2>
+<p>
+Der Kontoinhaber meldet sich einmalig über TikTok Login Kit (OAuth 2.0) an, um das
+Tool für das eigene Konto zu autorisieren. Danach lädt das Tool bereits fertig
+gerenderte Video-Dateien direkt vom lokalen Rechner über die Content Posting API
+(<code>video.publish</code>) auf das eigene Profil hoch. Es werden keine Inhalte
+oder Zugangsdaten Dritter verarbeitet.
+</p>
+
+<footer>
+  <p>
+    <a href="privacy.html">Datenschutzerklärung</a> ·
+    <a href="terms.html">Nutzungsbedingungen</a>
+  </p>
+  <p>Kontakt: deimos1075@gmail.com</p>
+</footer>
+
+</body>
+</html>
