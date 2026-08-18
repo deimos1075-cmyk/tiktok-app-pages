@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clips für deinen Kanal &ndash; Twitch Deutschland Shorts</title>
+<meta name="description" content="Wir schneiden deine Twitch-Streams automatisch in vertikale Shorts und posten sie auf mehreren Plattformen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F3F1EA;
+  --surface: #FFFFFF;
+  --surface-2: #EAE6DA;
+  --border: #DAD4C2;
+  --text: #1C1B17;
+  --text-dim: #635E4F;
+  --accent: #C4501F;
+  --accent-ink: #FFF7EE;
+  --moss: #3E5641;
+  --moss-bg: #E7ECE4;
+
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); }
+body { line-height: 1.55; }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: clamp(2.5rem, 7vw, 5rem) 1.3rem 4rem; display: flex; flex-direction: column; gap: clamp(3.5rem, 8vw, 5.5rem); }
+
+/* hero */
+.hero { display: flex; flex-direction: column; gap: 1.3rem; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.76rem; font-weight: 600; color: var(--accent); }
+h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.005em; font-size: clamp(2.1rem, 6.5vw, 3.1rem); line-height: 1.04; margin: 0; }
+.lede { font-family: var(--font-serif); font-size: 1.2rem; color: var(--text-dim); max-width: 56ch; margin: 0; }
+.cta-row { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.4rem; }
+.btn { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; font-size: 0.86rem; padding: 0.85rem 1.5rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+
+/* proof */
+.proof { display: flex; flex-direction: column; gap: 1.4rem; }
+.proof h2 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 0.04em; margin: 0; }
+.proof-sub { color: var(--text-dim); margin: -0.8rem 0 0; font-size: 0.96rem; }
+.proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.9rem; }
+.proof-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.2rem; }
+.proof-value { font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; }
+.proof-label { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.15rem; }
+.proof-examples { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border); margin-top: 0.4rem; }
+.proof-example { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); font-size: 0.94rem; }
+.proof-example a { color: var(--text); text-decoration: none; }
+.proof-example a:hover { color: var(--accent); }
+.proof-example .v { font-family: var(--font-display); font-weight: 600; color: var(--moss); white-space: nowrap; }
+.proof-example em { font-style: normal; color: var(--text-dim); font-weight: 400; font-size: 0.86rem; }
+.proof-platform { display: flex; flex-direction: column; gap: 0.6rem; }
+.proof-platform-head { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.86rem; font-weight: 600; color: var(--accent); margin: 0; }
+.proof-note { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
+
+/* flow */
+.flow { display: flex; flex-direction: column; gap: 1.4rem; }
+.flow h2 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 0.04em; margin: 0; }
+.flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.3rem; }
+.flow-step { display: flex; flex-direction: column; gap: 0.4rem; }
+.flow-num { font-family: var(--font-serif); font-style: italic; font-size: 1.6rem; color: var(--accent); }
+.flow-step h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+.flow-step p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+
+/* pricing */
+.pricing h2 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 0.04em; margin: 0 0 0.3rem; }
+.pricing-note { color: var(--text-dim); font-size: 0.9rem; margin: 0 0 1.4rem; max-width: 60ch; }
+.tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+@media (max-width: 560px) { .tiers { grid-template-columns: 1fr; } }
+.tier { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.tier.highlight { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.tier-name { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; font-size: 1rem; }
+.tier-price { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; }
+.tier-price span { font-family: var(--font-body); font-weight: 400; font-size: 0.85rem; color: var(--text-dim); }
+.tier ul { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; color: var(--text-dim); display: flex; flex-direction: column; gap: 0.4rem; }
+.tier ul li::marker { color: var(--accent); }
+
+/* faq */
+.faq { display: flex; flex-direction: column; gap: 1rem; }
+.faq h2 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 0.04em; margin: 0; }
+.faq-item { border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+.faq-item h3 { margin: 0 0 0.3rem; font-size: 0.96rem; font-weight: 600; }
+.faq-item p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+
+footer { text-align: center; color: var(--text-dim); font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <span class="eyebrow">Für Streamer</span>
+    <h1>Deine besten Momente verdienen mehr als nur den Twitch-Chat.</h1>
+    <p class="lede">Wir schneiden deine Streams automatisch in vertikale Shorts und posten sie auf YouTube, TikTok, Instagram &amp; Co. &mdash; du musst nichts selbst schneiden, hochladen oder posten.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://www.instagram.com/twitch_deutschland_shorts/" target="_blank" rel="noopener">Schreib uns an &rarr;</a>
+      <a class="btn btn-ghost" href="#beweis">Zeig mir die Zahlen</a>
+    </div>
+  </section>
+
+  <section class="proof" id="beweis">
+    <h2>Kein leeres Versprechen &mdash; das machen wir selbst, jeden Tag</h2>
+    <p class="proof-sub">Alle Zahlen sind live aus dem eigenen Kanal &bdquo;Twitch Deutschland Shorts&ldquo;, Stand 19.08.2026 &mdash; keine Beispielwerte.</p>
+
+    <div class="proof-grid" style="margin-bottom:0.6rem;">
+      <div class="proof-box"><div class="proof-value">1,33&nbsp;Mio.</div><div class="proof-label">Views insgesamt, alle Plattformen</div></div>
+      <div class="proof-box"><div class="proof-value">72</div><div class="proof-label">geschnittene Clips</div></div>
+      <div class="proof-box"><div class="proof-value">6</div><div class="proof-label">Plattformen gleichzeitig</div></div>
+      <div class="proof-box"><div class="proof-value">805.223</div><div class="proof-label">erreichte Konten (Instagram-Reichweite)</div></div>
+    </div>
+
+    <div class="proof-platform">
+      <p class="proof-platform-head">Instagram</p>
+      <div class="proof-grid">
+        <div class="proof-box"><div class="proof-value">1.201.203</div><div class="proof-label">Views (Reels)</div></div>
+        <div class="proof-box"><div class="proof-value">250</div><div class="proof-label">Follower</div></div>
+        <div class="proof-box"><div class="proof-value">22.530</div><div class="proof-label">Likes</div></div>
+        <div class="proof-box"><div class="proof-value">314</div><div class="proof-label">Kommentare</div></div>
+      </div>
+    </div>
+
+    <div class="proof-platform">
+      <p class="proof-platform-head">YouTube</p>
+      <div class="proof-grid">
+        <div class="proof-box"><div class="proof-value">125.325</div><div class="proof-label">Views, 8 Tage getrackt</div></div>
+        <div class="proof-box"><div class="proof-value">211</div><div class="proof-label">Abonnenten</div></div>
+        <div class="proof-box"><div class="proof-value">1.180</div><div class="proof-label">Likes</div></div>
+        <div class="proof-box"><div class="proof-value">40</div><div class="proof-label">Kommentare</div></div>
+      </div>
+    </div>
+
+    <div class="proof-examples">
+      <div class="proof-example"><a href="https://www.instagram.com/reel/Db8e3CHCeLE/" target="_blank" rel="noopener">Rumathra schreibt mit <em>(Instagram Reel)</em></a><span class="v">210.874 Views</span></div>
+      <div class="proof-example"><a href="https://youtu.be/Iu81AFnt_O4" target="_blank" rel="noopener">Hugo crystalt sich selber auf HugoSMP <em>(YouTube)</em></a><span class="v">37.355 Views</span></div>
+      <div class="proof-example"><a href="https://youtu.be/uQrKWTd4-lE" target="_blank" rel="noopener">Papaplatte spielt &bdquo;Choicer Voicer&ldquo; mit BastiGHG <em>(YouTube)</em></a><span class="v">13.808 Views</span></div>
+      <div class="proof-example"><a href="https://youtu.be/qmZqNepTV5U" target="_blank" rel="noopener">Marlies&rsquo; Meinung zu TimGiOh <em>(YouTube)</em></a><span class="v">6.753 Views</span></div>
+    </div>
+    <p class="proof-note">Besonders auf Instagram läuft's richtig gut: bei ähnlicher Follower-Zahl wie YouTube kommen dort fast 10x mehr Views zusammen &mdash; genau die Reichweite, die auch bei deinen Streams landen kann.</p>
+  </section>
+
+  <section class="flow">
+    <h2>So läuft's ab</h2>
+    <div class="flow-grid">
+      <div class="flow-step"><span class="flow-num">1</span><h3>VOD schicken</h3><p>Du gibst uns Zugriff auf deine Stream-Aufzeichnungen &mdash; mehr brauchen wir nicht.</p></div>
+      <div class="flow-step"><span class="flow-num">2</span><h3>Wir schneiden</h3><p>Automatische Highlight-Erkennung findet die besten Momente, wir geben ihnen den letzten Schliff (Titel, Untertitel, Format).</p></div>
+      <div class="flow-step"><span class="flow-num">3</span><h3>Wir posten</h3><p>Fertige Shorts gehen automatisch auf mehreren Plattformen raus &mdash; zeitlich verteilt, nicht alle auf einmal.</p></div>
+      <div class="flow-step"><span class="flow-num">4</span><h3>Du wächst</h3><p>Mehr Reichweite auf Kanälen, auf denen du sonst gar nicht vorkommst.</p></div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <h2>Angebot</h2>
+    <p class="pricing-note">Erster Vorschlag, kein Festpreis &mdash; wir passen das gern an deine Situation an. Am Ende reden wir einfach kurz drüber.</p>
+    <div class="tiers">
+      <div class="tier">
+        <span class="tier-name">Starter</span>
+        <span class="tier-price">Pauschale <span>/ Monat</span></span>
+        <ul>
+          <li>Feste Anzahl Clips im Monat</li>
+          <li>Fertige Videos zum Selbst-Hochladen</li>
+          <li>Kein Zugriff auf deine Accounts nötig</li>
+        </ul>
+      </div>
+      <div class="tier highlight">
+        <span class="tier-name">Rundum-sorglos</span>
+        <span class="tier-price">Umsatzbeteiligung <span>statt Fixpreis</span></span>
+        <ul>
+          <li>Unbegrenzt Clips aus deinen VODs</li>
+          <li>Wir posten direkt auf deinen Kanälen</li>
+          <li>Kein Risiko, wenn's mal ruhiger läuft</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>Kurz gefragt</h2>
+    <div class="faq-item"><h3>Muss ich meine Passwörter rausgeben?</h3><p>Nein. Für die reine Clip-Lieferung reicht der VOD-Zugriff. Fürs Posten auf deinen eigenen Kanälen richten wir das gemeinsam über die offiziellen Kanal-Freigaben ein, ohne dass wir dein Passwort brauchen.</p></div>
+    <div class="faq-item"><h3>Was, wenn mir die Clips nicht gefallen?</h3><p>Du entscheidest, was tatsächlich rausgeht &mdash; nichts wird ungesehen automatisch veröffentlicht, wenn du das nicht willst.</p></div>
+    <div class="faq-item"><h3>Für wen ist das gedacht?</h3><p>Für Streamer, die lieber streamen als schneiden &mdash; egal ob 50 oder 5.000 Zuschauer.</p></div>
+  </section>
+
+  <footer>ein Angebot von Twitch Deutschland Shorts</footer>
+
+</div>
+</body>
+</html>
